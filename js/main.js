@@ -8,10 +8,10 @@ btnSwitch.addEventListener('click', ()=>{
 
 
 let btn_compra = document.querySelectorAll(".botonCompra");
-let carrito = [];
+let carrito =  JSON.parse(localStorage.getItem('carrito')) || [];
 document.addEventListener('DOMContentLoaded' , ()=> {
-  carrito=JSON.parse(localStorage.getItem('carrito')) ||[]
-  mostrar_carrito()
+  guardarStorage();
+  mostrar_carrito();
 })
 
 console.log(btn_compra);
@@ -119,3 +119,4 @@ btn_carrito.addEventListener("click", function(){
 function guardarStorage(){
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
+
